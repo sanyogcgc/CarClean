@@ -2,6 +2,7 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from '../Login.Component';
 import { DashboardComponent } from '../Dashboard.Component';
+import { RegistrationComponent } from '../Registration.Componenet';
 
  export const RoutingConfig: Routes = [
      {
@@ -9,7 +10,10 @@ import { DashboardComponent } from '../Dashboard.Component';
          component: LoginComponent},
      {
          path: 'Dashboard',
-         component: DashboardComponent }
+         component: DashboardComponent },
+         {
+             path: 'Registration',
+             component: RegistrationComponent },
 
 ]
 ;

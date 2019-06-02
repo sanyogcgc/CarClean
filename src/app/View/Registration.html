@@ -1,0 +1,31 @@
+<h1>User Registration </h1>
+
+<div id="container" >
+        <form [formGroup]="RegisterForm"  (ngSubmit)="Register(RegisterForm.value)" autocomplete="off">
+            <div class="form-group" >
+                <label align="left">Name</label>
+                <input type="text" class="form-control" style="width: 350px;height: 40px" formControlName="name" placeholder="Name"  />
+            </div>
+            <div class="form-group" >
+                <label align="left">Mobile</label>
+                <input type="number" formControlName="mobile" style="width: 350px;height: 40px" class="form-control" placeholder="Mobile" />
+            </div>
+            <div class="form-group" >
+                    <label align="left">Email</label>
+                    <input type="Email" formControlName="email" style="width: 350px;height: 40px" class="form-control" placeholder="Email" />
+                </div>
+            
+            <div id="loginButton">            
+                <input type="submit" value="Register"  style="font-size: 15px;width: 120px;height: 40px" class="btn btn-primary" />&nbsp;&nbsp;
+                <input  value="Login" style="font-size: 15px;width: 120px;height: 40px" class="btn btn-primary" (click)="moveLogin()"/>
+    
+            </div>
+           
+        </form>
+    </div>
+    <br/>
+
+<div id="container">
+        <div *ngIf="error" style="color: darkred;font-size: 18px;" >
+        *Kindly fill all fields
+    </div>
