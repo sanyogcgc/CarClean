@@ -7,8 +7,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationComponent } from './Registration.Componenet';
 import { RouterModule } from '@angular/router';
 import { RoutingConfig } from './Routing/Routing.Config';
-//import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import { CarCleanService } from './car-clean.service';
+import {HttpModule} from '@angular/http';
+
 
 
 
@@ -17,7 +19,7 @@ import { CarCleanService } from './car-clean.service';
   declarations: [
     AppComponent, DashboardComponent , LoginComponent, RegistrationComponent
   ],
-  imports: [BrowserModule ,  RouterModule.forRoot(RoutingConfig), FormsModule, ReactiveFormsModule] ,
+  imports: [BrowserModule ,  RouterModule.forRoot(RoutingConfig), FormsModule, ReactiveFormsModule, HttpClientModule ,HttpModule] ,
   providers: [CarCleanService],
   bootstrap: [AppComponent]
 })

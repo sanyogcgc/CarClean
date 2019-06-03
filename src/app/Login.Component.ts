@@ -29,7 +29,7 @@ Login(data: LoginModel) {
 
 }
 moveRegistration() {
-        this.router.navigate(['/Registration']);
+        this.router.navigateByUrl('/Registration');
     }
 }
 
