@@ -36,8 +36,8 @@ this.error = true;
 return;
 }
 
-this._carCleanService.saveEmployee(this.RegisterForm.value).subscribe((data) => {
- this._router.navigate(['/DashBoard']);
+this._carCleanService.saveEmployee(this.RegisterForm.value).subscribe((data1) => {
+ this._router.navigate(['/Dashoard']);
 }, error => this.errorMessage = error);
 this.error = false;
 
