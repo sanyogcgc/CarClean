@@ -30,7 +30,8 @@ Login(data: LoginModel) {
         }
         else
          {
-             
+            this._carCleanService.sessionUserID = data;
+    
             this._router.navigate(['/Dashboard']);
             this.error = false;
          }

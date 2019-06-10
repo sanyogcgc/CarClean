@@ -12,6 +12,7 @@ import { LoginModel } from './Model/LoginModel';
 @Injectable()
 export class CarCleanService {
   constructor(private _http: Http ) {}
+  sessionUserID: number = null;
 
   // Register user.
   saveEmployee( regData) {
@@ -24,6 +25,11 @@ export class CarCleanService {
     return this._http.post('http://localhost:1026/api/User/Login', loginData ).map(
       (response: Response) => response.json()).catch(this.errorHandler);
     }
+
+    getUserdetails(userID) {
+      return this._http.get('http://localhost:1026/api/User/UserDetails?userID=' + userID).map(
+        (response: Response) => response.json()).catch(this.errorHandler);
+      }
    errorHandler(error: Response) {
        console.log(error);
        return Observable.throw(error);
