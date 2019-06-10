@@ -15,6 +15,7 @@ styleUrls: []
 export class RegistrationComponent{
 public RegisterForm: FormGroup;
 private error: boolean = false;
+private errorUserExist: boolean = false;
 errorMessage: any;
 constructor(
     private _router: Router , private _carCleanService: CarCleanService, private RegisterFormBuilder: FormBuilder) {
@@ -37,7 +38,17 @@ return;
 }
 
 this._carCleanService.saveEmployee(this.RegisterForm.value).subscribe((data1) => {
- this._router.navigate(['/Dashoard']);
+    if (data1 == 0)
+    {
+        this.errorUserExist = true;
+     //alert('Mobile or Email already exist!!!');
+    }
+    else
+     {
+        this._router.navigate(['/Dashboard']);
+        this.errorUserExist = false;
+
+     }
 }, error => this.errorMessage = error);
 this.error = false;
 

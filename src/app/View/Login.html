@@ -5,11 +5,11 @@
 <div id="container" >
     <form [formGroup]="LoginForm" (ngSubmit)="Login(LoginForm.value)" autocomplete="off">
         <div class="form-group" >
-            <label align="left">User Name</label>
+            <label align="left">Mobile</label>
             <input type="text" class="form-control" style="width: 350px;height: 40px" formControlName="username" placeholder="User Name"  />
         </div>
         <div class="form-group" >
-            <label align="left">Password</label>
+            <label align="left">Password(Email)</label>
             <input type="password" formControlName="password" style="width: 350px;height: 40px" class="form-control" placeholder="Password" />
         </div>
         
