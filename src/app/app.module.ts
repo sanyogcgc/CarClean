@@ -10,16 +10,15 @@ import { RoutingConfig } from './Routing/Routing.Config';
 import {HttpClientModule} from '@angular/common/http';
 import { CarCleanService } from './car-clean.service';
 import {HttpModule} from '@angular/http';
-
-
-
+import { StorageServiceModule} from 'angular-webstorage-service';
 
 
 @NgModule({
   declarations: [
     AppComponent, DashboardComponent , LoginComponent, RegistrationComponent
   ],
-  imports: [BrowserModule ,  RouterModule.forRoot(RoutingConfig), FormsModule, ReactiveFormsModule, HttpClientModule ,HttpModule] ,
+  imports: [BrowserModule ,  RouterModule.forRoot(RoutingConfig), FormsModule, ReactiveFormsModule, HttpClientModule ,
+     HttpModule , StorageServiceModule] ,
   providers: [CarCleanService],
   bootstrap: [AppComponent]
 })

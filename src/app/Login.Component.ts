@@ -1,8 +1,9 @@
-import {Component} from '@angular/core';
+import {Component , Inject } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder , Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { LoginModel } from './Model/LoginModel';
 import { CarCleanService } from './car-clean.service';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Component({
     selector: 'app-login-ui',
@@ -15,7 +16,8 @@ export class LoginComponent{
     public error: boolean = false;
     errorMessage: any;
 
-constructor( private _router: Router , private _carCleanService: CarCleanService, private FormBuilder: FormBuilder)  {
+constructor( private _router: Router , private _carCleanService: CarCleanService,
+    private FormBuilder: FormBuilder , @Inject(LOCAL_STORAGE) private storage: WebStorageService)  {
     this.LoginForm = this.FormBuilder.group({
         username: ['', [Validators.required]],
         password: ['', [Validators.required]]
@@ -31,7 +33,8 @@ Login(data: LoginModel) {
         else
          {
             this._carCleanService.sessionUserID = data;
-    
+            this.storage.set('UserSessionData', data);
+
             this._router.navigate(['/Dashboard']);
             this.error = false;
          }

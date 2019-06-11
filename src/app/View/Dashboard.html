@@ -7,8 +7,19 @@
             <label> Name : {{name}} </label> <br/>
             <label> Mobile : {{mobile}} </label> <br/>
             <label> Email : {{email}} </label> <br/>
-
     </div>
+    <div>
+        <table>
+            <tr><td style="width:20%">UserID</td><td style="width:20%">Name</td><td style="width:30%">Mobile</td><td style="width:40%">Email</td></tr>
+            <tr *ngFor="let users of userList" >
+                    <td style="width:20%">{{users.UserID}}</td>
+                    <td style="width:20%">{{users.Name}}</td>
+                    <td style="width:20%">{{users.Mobile}}</td>
+                    <td style="width:50%">{{users.Email}}</td>        
+            </tr>
+        </table>
+    </div>
+
 </form>
 </div>
 

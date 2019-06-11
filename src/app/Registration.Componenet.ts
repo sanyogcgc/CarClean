@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { RegistrationModel } from './Model/Registration.Model';
 import { CarCleanService } from './car-clean.service';
 import { Http, Headers } from '@angular/http';
+import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 
 @Component ({
@@ -18,7 +19,8 @@ private error: boolean = false;
 private errorUserExist: boolean = false;
 errorMessage: any;
 constructor(
-    private _router: Router , private _carCleanService: CarCleanService, private RegisterFormBuilder: FormBuilder) {
+    private _router: Router , private _carCleanService: CarCleanService, private RegisterFormBuilder: FormBuilder ,
+    @Inject(LOCAL_STORAGE) private storage: WebStorageService ) {
  this.RegisterForm = this.RegisterFormBuilder.group({
  name : ['', [Validators.required]],
  mobile : ['', [Validators.required]],
@@ -45,6 +47,8 @@ this._carCleanService.saveEmployee(this.RegisterForm.value).subscribe((data1) =>
     }
     else
      {
+        this.storage.set('UserSessionData', data1);
+
         this._router.navigate(['/Dashboard']);
         this.errorUserExist = false;
 
